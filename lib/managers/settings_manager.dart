@@ -57,17 +57,21 @@ abstract class SettingsManagerBase extends Subsystem with Store, Logger {
     reportSubsystemOk(message: "Default settings accepted.");
   }
 
-  @action
-  Future<void> updateAndSave(Settings settings) async {
-    if (settings == _settings) return;
-
+  Future<void> save() async {
     if (!_blockSaving) {
       logDebug("Saving settings");
-      await getIt<SerialiableRepository<Settings>>().write(settings);
+      await getIt<SerialiableRepository<Settings>>().write(_settings);
       logDebug("Saved settings");
     } else {
       logDebug("Saving blocked");
     }
+  }
+
+  @action
+  Future<void> updateAndSave(Settings settings) async {
+    if (settings == _settings) return;
+
+    await save();
 
     _settings = settings;
     getIt<MqttManager>().publishSettings(settings);
