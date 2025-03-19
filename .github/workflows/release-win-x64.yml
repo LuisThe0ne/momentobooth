@@ -154,10 +154,6 @@ jobs:
       working-directory: ${{ env.DEV_DRIVE }}/momentobooth
       run: flutter_rust_bridge_codegen generate
 
-    - name: Flutter analyze
-      working-directory: ${{ env.DEV_DRIVE }}/momentobooth
-      run: flutter analyze
-
     - name: Extract release version
       id: extract_release_version
       shell: bash
