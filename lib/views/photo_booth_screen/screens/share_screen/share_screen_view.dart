@@ -133,10 +133,6 @@ class ShareScreenView extends ScreenViewBase<ShareScreenViewModel, ShareScreenCo
             ],
           ),
         ),
-        Flexible(
-          fit: FlexFit.tight,
-          child: _getBottomRow(),
-        ),
       ],
     );
   }
