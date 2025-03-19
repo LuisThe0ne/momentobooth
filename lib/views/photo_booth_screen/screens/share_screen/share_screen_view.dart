@@ -136,44 +136,4 @@ class ShareScreenView extends ScreenViewBase<ShareScreenViewModel, ShareScreenCo
       ],
     );
   }
-
-  Widget _getBottomRow() {
-    return Row(
-      children: [
-        Flexible(
-          child: Center(
-            child: GestureDetector(
-              // Get QR button
-              onTap: controller.onClickGetQR,
-              behavior: HitTestBehavior.translucent,
-              child: AutoSizeText(
-                localizations.photoDetailsScreenGetQrButton,
-                style: theme.titleStyle,
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: GestureDetector(
-            // Print button
-            onTap: controller.onClickPrint,
-            behavior: HitTestBehavior.translucent,
-            child: Center(
-              child: Observer(
-                builder: (context) => AnimatedOpacity(
-                  duration: const Duration(milliseconds: 300),
-                  opacity: viewModel.printEnabled ? 1 : 0.5,
-                  child: AutoSizeText(
-                    viewModel.printText,
-                    style: theme.titleStyle,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
 }
