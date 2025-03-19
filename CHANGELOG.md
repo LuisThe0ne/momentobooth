@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## 0.14.3
+- disabled print and qr button
+
 ## 0.14.2
 
 - Bugfix: Fix multi capture not continuing after first capture
