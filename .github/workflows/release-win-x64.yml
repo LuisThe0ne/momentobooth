@@ -12,8 +12,6 @@ permissions:
 
 jobs:
   build:
-    if: ${{ github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/') }}
-
     runs-on: windows-latest
     timeout-minutes: 45
 
